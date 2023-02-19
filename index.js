@@ -75,4 +75,4 @@ app.post("/", async (req, res) => {
 });
 
 // start listening for requests
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
