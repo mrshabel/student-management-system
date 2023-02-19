@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const Student = require("./models");
 
 // connect to mongodb server
@@ -9,14 +10,15 @@ mongoose
     `mongodb+srv://user1:X4OhmAJs40BmEiNO@cluster0.cvejt9k.mongodb.net/school_db?authSource=admin&readPreference=primary&directConnection=false`
   )
   .catch((err) => {
-    console.log(err);
+    console.log(err)
   });
 
 // create express server
 const app = express();
 
 // add middleware
-app.use(express.json());
+app.use(express.json())
+app.use(cors())
 
 // retrieve student data
 app.get("/:studentID", async (req, res) => {
