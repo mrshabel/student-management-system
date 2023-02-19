@@ -56,6 +56,17 @@ app.post("/", async (req, res) => {
     level: data.level,
   });
 
+  // check whether student ID already exists
+  Student.findOne({ studentID: data.studentID }).then(studentDoc => {
+    // if a student document matching the student ID is returned, 
+    // then send a conflict error flagging that the ID already exists
+    if (studentDoc) {
+      res.status(409).send({
+        message: `Student ID = ${studentID} already exists`
+      })
+    }
+  })
+
   // save the student document
   newStudent.save(async (err, newStudentDoc) => {
     if (err) {
