@@ -64,6 +64,7 @@ app.post("/", async (req, res) => {
       res.status(409).send({
         message: `Student ID = ${studentID} already exists`
       })
+      return
     }
   })
 
