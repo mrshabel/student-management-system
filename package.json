@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "npm install --production",
-    "test": "nodemon index.js"
+    "start-dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
